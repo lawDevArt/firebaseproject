@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/firebaseproject/static/js/main.e7da06f6.js",
-    "index.html": "/firebaseproject/index.html",
-    "main.e7da06f6.js.map": "/firebaseproject/static/js/main.e7da06f6.js.map"
+    "main.js": "/static/js/main.e7da06f6.js",
+    "index.html": "/index.html",
+    "main.e7da06f6.js.map": "/static/js/main.e7da06f6.js.map"
   },
   "entrypoints": [
     "static/js/main.e7da06f6.js"
