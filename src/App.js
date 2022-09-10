@@ -12,7 +12,7 @@ export const App = () => {
   return (
     <AuthGoogleProvider>
       <Fragment>
-        <Router>
+        <Router basename="/">
           <Routes>
             <Route exact path="/" element={<Login />} />
             <Route exact path="/contato" element={<Contato />} />
