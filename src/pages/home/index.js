@@ -4,8 +4,8 @@ import 'firebase/firestore';
 import 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { useContext, useEffect } from 'react'
 import { Navigate } from 'react-router-dom';
+import { useContext, useEffect } from 'react'
 import { AuthGoogleContext } from '../../contexts/authGoogle'
 import { addDoc, collection, doc, getDocs, getFirestore } from 'firebase/firestore';
 import { app } from '../../services/firebaseConfig';
@@ -21,15 +21,15 @@ export const Home = () => {
 
     const HandleChange = (event) => {
         setMensagem(event.target.value)
-        setName(user.displayName)
+        console.log(mensagem)
     }
 
     async function CreateMensage(){
+        let name = user.displayName;
         const usuario = await addDoc(userCollect, {
             mensagem,
             name
         });
-        console.log(usuario)
     }
 
     useEffect(() => {
@@ -60,3 +60,5 @@ export const Home = () => {
     )
 
 }
+
+export default Home

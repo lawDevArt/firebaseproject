@@ -1,11 +1,9 @@
 import { useContext } from 'react'
-import { Navigate } from 'react-router-dom';
+import { NavLink,Navigate } from 'react-router-dom';
 import { AuthGoogleContext } from '../../contexts/authGoogle'
 
 export const Login = () => {
     const { signInGoogle, signed } = useContext(AuthGoogleContext)
-
-
     async function loginGoogle() {
         await signInGoogle();
     }
@@ -16,3 +14,5 @@ export const Login = () => {
         return <Navigate to="/home"></Navigate>
     }
 }
+
+export default Login

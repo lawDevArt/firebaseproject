@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from "../services/firebaseConfig";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const provider = new GoogleAuthProvider();
 
@@ -42,7 +42,7 @@ export const AuthGoogleProvider = ({ children }) => {
     function signOut(){
         sessionStorage.clear()
         setUser(null)
-        return <Navigate to="/"></Navigate>
+        return <useNavigate to="/"></useNavigate>
     }
 
     return (
