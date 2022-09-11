@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import * as React from 'react';
 import firebase from 'firebase/app'
 import 'firebase/firestore';
 import 'firebase/auth'
@@ -9,6 +10,19 @@ import { useContext, useEffect } from 'react'
 import { AuthGoogleContext } from '../../contexts/authGoogle'
 import { addDoc, collection, doc, getDocs, getFirestore } from 'firebase/firestore';
 import { app } from '../../services/firebaseConfig';
+import { Grid, TextField } from '@mui/material';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import Menu from '../../components/menu';
 
 
 export const Home = () => {
@@ -18,13 +32,13 @@ export const Home = () => {
     const { user, signOut } = useContext(AuthGoogleContext)
     const db = getFirestore(app);
     const userCollect = collection(db, "users")
-
+    
     const HandleChange = (event) => {
         setMensagem(event.target.value)
         console.log(mensagem)
     }
 
-    async function CreateMensage(){
+    async function CreateMensage() {
         let name = user.displayName;
         const usuario = await addDoc(userCollect, {
             mensagem,
@@ -43,20 +57,13 @@ export const Home = () => {
     }, []);
 
     return (
-        <div>
-            <button onClick={() => signOut()}>Sair</button>
-            <h1>Bem vindo {user.displayName} Teste beta do FIREBASE em um dominio free</h1>
-            <input type="text" placeholder='Mensagem...' value={mensagem} onChange={HandleChange} />
-            <button onClick={CreateMensage}>Criar</button>
-            {users.map((user) => {
-                return (
-                    <div key={user.id}>
-                        <h2>{user.name}</h2>
-                        <h1>{user.mensagem}</h1>
-                    </div>
-                )
-            })}
-        </div>
+        <Grid container spacing={2}>
+            {/* <button onClick={() => signOut()}>Sair</button> */}
+            <h1>SSS</h1>
+            <Grid style={{position: "relative"}}>
+                <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+            </Grid>
+        </Grid>
     )
 
 }

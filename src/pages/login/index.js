@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { NavLink,Navigate } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
 import { AuthGoogleContext } from '../../contexts/authGoogle'
 
 export const Login = () => {
@@ -7,12 +7,15 @@ export const Login = () => {
     async function loginGoogle() {
         await signInGoogle();
     }
-    
-    if(!signed){
-        return <button onClick={() => signInGoogle()}>Logar com google</button>
-    }else{
-        return <Navigate to="/home"></Navigate>
-    }
+    return (
+        <>
+            {signed?(
+                <Navigate to="/home"></Navigate>
+            ) : (
+                <button onClick={() => signInGoogle()}>Logar com google</button>
+            )}
+        </>
+    )
 }
 
 export default Login
